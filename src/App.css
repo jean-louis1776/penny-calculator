@@ -1,0 +1,78 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.hidden {
+    display: none;
+}
+
+.navbar {
+    padding: 0 !important;
+    margin-bottom: 15px;
+}
+
+.navbar-text {
+    padding: 0 !important;
+    color: #7e7e7e !important;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+button {
+    padding: 0 10px !important;
+    text-transform: uppercase !important;
+    border-radius: 0px !important;
+    background: #2c3e50 !important;
+    border-color: #2c3e50 !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    height: 30px;
+}
+
+button:hover {
+    background: #33cccc !important;
+    border-color: #33cccc !important;
+}
+
+.form-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.calc-penny {
+    margin-top: 20px;
+}
+
+.result-wrap {
+    padding: 0 !important;
+}
+
+.result-header {
+    margin-top: 40px;
+}
+
+.result-formule {
+    border-radius: 0 !important;
+    background: #2c3e50 !important;
+    border-color: #2c3e50 !important;
+    color: aliceblue !important;
+    text-align: center;
+}
+
+tr {
+    text-align: center;
+}
+
+.error {
+    color: red;
+    margin-bottom: 5px;
+}
