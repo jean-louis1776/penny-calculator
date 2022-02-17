@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Table, Navbar, Alert, Container } from "react-bootstrap"
 
 const CalcResult = (props) => {
