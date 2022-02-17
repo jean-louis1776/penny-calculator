@@ -16,9 +16,22 @@ const CalcForm = (props) => {
     const [inputEndDate, setInputEndDate] = useState("")
     const [printResult, setPrintResult] = useState(false)
     const [priceError, setPriceError] = useState("")
-    const [percentError, setPercentError] = useState("")
     const [startDateError, setStartDateError] = useState("")
     const [endDateError, setEndDateError] = useState("")
+
+    const url = `https://apps.kv34.ru/cbr/main-info?day=${inputEndDate}`
+
+    fetch(url)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            let key = JSON.parse(data.keyRate)
+            setInputPercent(key)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 
     const handlePriceChange = (maskedvalue) => {
         setInputPrice(maskedvalue)
@@ -39,8 +52,6 @@ const CalcForm = (props) => {
     const handleValid = () => {
         if (!inputPrice) {
             setPriceError("Это поле является обязательным")
-        } else if (!inputPercent) {
-            setPercentError("Это поле является обязательным")
         } else if (!inputStartDate) {
             setStartDateError("Это поле является обязательным")
         } else if (!inputEndDate) {
@@ -52,7 +63,6 @@ const CalcForm = (props) => {
             inputEndDate
         ) {
             setPriceError("")
-            setPercentError("")
             setStartDateError("")
             setEndDateError("")
             handlePrintResult()
@@ -84,19 +94,6 @@ const CalcForm = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <FormLabel className="form-label">
-                        Ставка рефинансирования (ключевая ставка %)
-                    </FormLabel>
-                    <CurrencyInput
-                        className="form-control"
-                        onChange={handlePercentChange}
-                        value={inputPercent}
-                        precision="1"
-                        name="percent"
-                    />
-                    {percentError && <p className="error">{percentError}</p>}
-                </FormGroup>
-                <FormGroup>
-                    <FormLabel className="form-label">
                         Срок окончания поставки товара, выполнения работ
                         оказания услуг
                     </FormLabel>
@@ -125,6 +122,18 @@ const CalcForm = (props) => {
                         name="endDate"
                     />
                     {endDateError && <p className="error">{endDateError}</p>}
+                </FormGroup>
+                <FormGroup>
+                    <FormLabel className="form-label">
+                        Ставка рефинансирования (ключевая ставка %)
+                    </FormLabel>
+                    <CurrencyInput
+                        className="form-control"
+                        onChange={handlePercentChange}
+                        value={inputPercent}
+                        precision="1"
+                        name="percent"
+                    />
                 </FormGroup>
 
                 <Button
