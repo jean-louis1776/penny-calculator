@@ -4,7 +4,7 @@ import { Table, Navbar, Alert, Container } from "react-bootstrap"
 const CalcResult = (props) => {
     const percent = props.percent
 
-    let penny = (props.price * props.perdays * percent) / 300
+    let penny = (props.price * props.perdays * (percent / 100)) / 300
 
     return (
         <Container className="result-wrap">
