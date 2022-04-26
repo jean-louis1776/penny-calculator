@@ -29,9 +29,6 @@ const CalcForm = (props) => {
             let key = JSON.parse(data.keyRate)
             setInputPercent(key)
         })
-        .catch((error) => {
-            console.log(error)
-        })
 
     const handlePriceChange = (maskedvalue) => {
         setInputPrice(maskedvalue)
