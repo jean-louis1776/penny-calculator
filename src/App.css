@@ -1,32 +1,32 @@
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+#calc44fz_root input[type="number"]::-webkit-outer-spin-button,
+#calc44fz_root input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-input[type="number"],
-input[type="number"]:hover,
-input[type="number"]:focus {
+#calc44fz_root input[type="number"],
+#calc44fz_root input[type="number"]:hover,
+#calc44fz_root input[type="number"]:focus {
     appearance: none;
     -moz-appearance: textfield;
 }
 
-.hidden {
+#calc44fz_root .hidden {
     display: none;
 }
 
-.navbar {
+#calc44fz_root .navbar {
     padding: 0 !important;
     margin-bottom: 15px;
 }
 
-.navbar-text {
+#calc44fz_root .navbar-text {
     padding: 0 !important;
     color: #7e7e7e !important;
     font-size: 14px;
     font-weight: 400;
 }
 
-button {
+#calc44fz_root .penny-button {
     padding: 0 10px !important;
     text-transform: uppercase !important;
     border-radius: 0px !important;
@@ -37,30 +37,30 @@ button {
     height: 30px;
 }
 
-button:hover {
+#calc44fz_root .penny-button:hover {
     background: #33cccc !important;
     border-color: #33cccc !important;
 }
 
-.form-label {
+#calc44fz_root .form-label {
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.calc-penny {
+#calc44fz_root .calc-penny {
     margin-top: 20px;
 }
 
-.result-wrap {
+#calc44fz_root .result-wrap {
     padding: 0 !important;
 }
 
-.result-header {
+#calc44fz_root .result-header {
     margin-top: 40px;
 }
 
-.result-formule {
+#calc44fz_root .result-formule {
     border-radius: 0 !important;
     background: #2c3e50 !important;
     border-color: #2c3e50 !important;
@@ -68,11 +68,21 @@ button:hover {
     text-align: center;
 }
 
-tr {
+#calc44fz_root .formule-text {
+    font-family: "Open Sans", sans-serif !important;
+    color: aliceblue !important;
+    font-size: 1rem !important;
+}
+
+#calc44fz_root .copy-button {
+    border: 1px solid #33cccc !important;
+}
+
+#calc44fz_root .calc-row {
     text-align: center;
 }
 
-.error {
+#calc44fz_root .error {
     color: red;
     margin-bottom: 5px;
 }

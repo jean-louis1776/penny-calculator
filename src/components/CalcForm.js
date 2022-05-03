@@ -136,7 +136,7 @@ const CalcForm = (props) => {
                 <Button
                     type="submit"
                     variant="success"
-                    className="calc-penny"
+                    className="calc-penny penny-button"
                     onClick={(e) => {
                         e.preventDefault()
                         handleValid()
@@ -152,7 +152,11 @@ const CalcForm = (props) => {
                         perdays={diffDays}
                         percent={inputPercent}
                     />
-                    <Button variant="success" onClick={handleDeleteResult}>
+                    <Button
+                        className="penny-button"
+                        variant="success"
+                        onClick={handleDeleteResult}
+                    >
                         Новый расчёт
                     </Button>
                 </>

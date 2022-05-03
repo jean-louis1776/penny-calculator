@@ -1,10 +1,28 @@
-import React from "react"
-import { Table, Navbar, Alert, Container } from "react-bootstrap"
+import React, { useState, useEffect } from "react"
+import { Table, Navbar, Alert, Container, Button } from "react-bootstrap"
 
 const CalcResult = (props) => {
-    const percent = props.percent
+    const [copied, setCopied] = useState(false)
 
+    const percent = props.percent
     let penny = (props.price * props.perdays * (percent / 100)) / 300
+
+    const printFormule = `Размер пени П = ${props.price} руб. * ${
+        percent + "%"
+    } * 1 / 300 * ${props.perdays} = ${penny.toFixed(2)} руб.`
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (copied) {
+                setCopied(false)
+            }
+        }, 2000)
+
+        return () => {
+            navigator.clipboard.writeText(printFormule)
+            clearTimeout(timeout)
+        }
+    }, [copied])
 
     return (
         <Container className="result-wrap">
@@ -13,7 +31,7 @@ const CalcResult = (props) => {
             </Navbar>
             <Table>
                 <thead>
-                    <tr>
+                    <tr className="calc-row">
                         <th>Цена неисполненных обязательств</th>
                         <th>Дни просрочки</th>
                         <th>Ставка рефинансирования (ключевая ставка)</th>
@@ -21,7 +39,7 @@ const CalcResult = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr className="calc-row">
                         <td>{props.price}</td>
                         <td>{props.perdays}</td>
                         <td>{percent + "%"}</td>
@@ -29,9 +47,20 @@ const CalcResult = (props) => {
                     </tr>
                 </tbody>
             </Table>
+
             <Alert variant="success" className="result-formule">
-                Размер пени П = {props.price} руб. * {percent + "%"} * 1 / 300 *{" "}
-                {props.perdays} = {penny.toFixed(2)} руб.
+                <Alert.Heading>Формула</Alert.Heading>
+                <p className="formule-text">{printFormule}</p>
+                <hr />
+                <div className="d-flex justify-content-end">
+                    <Button
+                        variant="success"
+                        className="copy-button penny-button"
+                        onClick={() => setCopied(true)}
+                    >
+                        {copied ? "Скопировано!" : "Скопировать результат"}
+                    </Button>
+                </div>
             </Alert>
         </Container>
     )
