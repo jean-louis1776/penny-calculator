@@ -91,7 +91,7 @@ const CalcForm = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <FormLabel className="form-label">
-                        Срок окончания поставки товара, выполнения работ
+                        Срок окончания поставки товара, выполнения работ,
                         оказания услуг
                     </FormLabel>
                     <FormControl
